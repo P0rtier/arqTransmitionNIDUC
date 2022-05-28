@@ -17,13 +17,13 @@ def appendParityBit(input):
 
 def rollBackParity(input):
     if input.size > 9:
-        return False
-    check = input[0:7]
+        return False,input
+    check = input[0:8]
     pCheck = generate_parity_bit(check)
     if pCheck == input[8]:
-        return True
+        return True,input
     else:
-        return False
+        return False,input
 
 
 # crc32
@@ -31,41 +31,47 @@ def getIntFromBin(input):
     a = 0
     init = 0
     for i in range(input.size-1,-1,-1):
-        init = init +  pow(2,a) * input[i]
-        a= a+1
+        init = init + pow(2,a) * input[i]
+        a = a+1
     return init
 
 
+
+
 def generateAndAppendCRC32(input):
-    crc32 = binascii.crc32(input)
-    crc32List = num.array([int(x) for x in bin(crc32)[2:]])
-    return crc32, num.append(input, crc32List)
+    crc32Dec = binascii.crc32(input)
+    crc32Bin = num.array([int(x) for x in bin(crc32Dec)[2:]])
+    all_crc32 = num.zeros(32-crc32Bin.size,dtype=num.uint8)
+    crc32List = num.concatenate((all_crc32,crc32Bin))
+    return num.append(input, crc32List)
 
 
 def rollBackCRC32(input):
-    if input < 40:
-        return False
-    pure_data_32 = input[0:31]
-    control = input[32:39]
-    if binascii.crc32(pure_data_32) == getIntFromBin(control):
-        return True
+    if input.size < 40:
+        return False,input
+    data_wo_packet_send = input[0:8]
+    control = input[8:]
+    if binascii.crc32(data_wo_packet_send) == getIntFromBin(control):
+        return True,input
     else:
-        return False
+        return False,input
 
 
 # dublowanie
 def generateDouble(input):
-    out = num.array(0)
+    out = num.empty(0,dtype=num.uint8)
     for i in input:
-        out = num.append(out,i,i)
+        out = num.append(out,[i,i])
     return out
 
 
 def rollBackDouble(input):
-    if input % 2 != 0:
-        return False
+    out = num.array([])
+    if input.size % 2 != 0:
+        return False,input
     for i in range(0,input.size,2):
         if input[i] != input[i+1]:
-            return False
+            return False,out
         else:
-            return True
+            num.append(out,input[i])
+    return True,out
