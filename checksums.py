@@ -73,5 +73,5 @@ def rollBackDouble(input):
         if input[i] != input[i+1]:
             return False,out
         else:
-            num.append(out,input[i])
+            out = num.append(out,int(input[i]))
     return True,out
