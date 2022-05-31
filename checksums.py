@@ -5,25 +5,29 @@ import binascii
 # bit parzystosci
 def generate_parity_bit(input):
     checksum = 0
-    for i in input:
-        checksum+=i
+    for i in range(0,8):
+        checksum+= input[i]
     return checksum % 2
 
 def appendParityBit(input):
-    if input.size>8:
-        return "Error"
-    else:
-        return num.append(input,generate_parity_bit(input))
+    out = num.empty(0,dtype=num.uint8)
+    for i in range(0,input.size,8):
+        help = input[i:i+8]
+        out = num.append(out, help)
+        out = num.append(out,generate_parity_bit(help))
+    return out
 
 def rollBackParity(input):
-    if input.size > 9:
+    if input.size %9 != 0:
         return False,input
-    check = input[0:8]
-    pCheck = generate_parity_bit(check)
-    if pCheck == input[8]:
-        return True,input
-    else:
-        return False,input
+    out = num.empty(0,dtype=num.uint8)
+    for i in range(0,input.size,9):
+        help = input[i:i+8]
+        bit_checksum = input[i+8]
+        if generate_parity_bit(help) != bit_checksum:
+            return False,input
+        out = num.append(out,help)
+    return True,out
 
 
 # crc32

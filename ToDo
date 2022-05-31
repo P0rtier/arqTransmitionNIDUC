@@ -1,7 +1,6 @@
 Main features:
-    1. Implement Gilbert Channel
-    2. Implement channel overflow
-    3. Save results in .txt and .csv
+    1. Save results in .txt and .csv
+    2. frames > 8 for Even Checksum
 
 Additional amendments:
     1. Modify probability of timeout accordingly to theoretical knowledge

@@ -1,19 +1,5 @@
-import numpy
+import communication as comm
 from checksums import *
-import random
-import time
-
-def sendResponse(respText,responseArray):
-    timer = random.randint(10,60)
-    if(timer>=40):
-        print("Response lost due to timeout in noise channel")
-        return 3,responseArray
-    if(respText=="NACK"):
-        print("Nack request sent to transmiter")
-        return 4,responseArray
-    else:
-        print("ACK sent")
-        return 5,responseArray
 
 def receiver(data_to_receive,code_encryption):
     global response
@@ -28,8 +14,8 @@ def receiver(data_to_receive,code_encryption):
 
     if(resp_good):
         print("Packet properly decoded, sending ACK back")
-        return sendResponse("ACK",response)
+        return comm.sendResponse("ACK",response)
     else:
-        print("Wrong packet decoded, sending NACK request")
-        return sendResponse("NACK",response)
+        print("Wrong packet decoded! The frame has been altered in the noise channel!")
+        return comm.sendResponse("NACK",response)
 

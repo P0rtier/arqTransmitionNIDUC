@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e59b857b-4220-4161-ba33-e8b1020f51f2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/channels.py" beforeDir="false" afterPath="$PROJECT_DIR$/channels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDo" beforeDir="false" afterPath="$PROJECT_DIR$/ToDo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/checksums.py" beforeDir="false" afterPath="$PROJECT_DIR$/checksums.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/receiver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transmitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/transmitter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,23 +149,31 @@
       <option name="project" value="LOCAL" />
       <updated>1653769420517</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add Gilbert channel&#10;Add channel overflow&#10;Amendments to doubling scheme">
+      <created>1653786239837</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653786239837</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add main engines of simulation&#10;Modify crucial functions" />
     <MESSAGE value="Add ToDo Scheme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ToDo Scheme" />
+    <MESSAGE value="Add Gilbert channel&#10;Add channel overflow&#10;Amendments to doubling scheme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Gilbert channel&#10;Add channel overflow&#10;Amendments to doubling scheme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/transmitter.py</url>
-          <line>99</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>
