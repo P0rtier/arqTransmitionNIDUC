@@ -1,0 +1,11 @@
+Channel Type: Gilbert
+Code Encryption: Doubling
+
+----Statistics of simulation----
+Packets ought to be delivered: 16
+Packets successfully delivered: 16
+Packets lost due to timeout: 15
+Packets lost due to noise channel: 24
+Packets lost due to collision: 3
+------------------------------------
+Total frames lost: 42

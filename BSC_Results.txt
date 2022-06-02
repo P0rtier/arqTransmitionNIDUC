@@ -1,0 +1,11 @@
+Channel Type: BSC
+Code Encryption: CRC32
+
+----Statistics of simulation----
+Packets ought to be delivered: 69
+Packets successfully delivered: 0
+Packets lost due to timeout: 310
+Packets lost due to noise channel: 1070
+Packets lost due to collision: 0
+------------------------------------
+Total frames lost: 1380
