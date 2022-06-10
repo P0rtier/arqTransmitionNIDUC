@@ -1,7 +1,0 @@
-Main features:
-    1. Save results in .txt and .csv
-    2. frames > 8 for Even Checksum
-
-Additional amendments:
-    1. Modify probability of timeout accordingly to theoretical knowledge
-    2. Delete timeout from response ACK (?)
